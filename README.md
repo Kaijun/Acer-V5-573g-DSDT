@@ -23,3 +23,5 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
   - Add `\_SB.PCI0.RP05.PEGP._ON()` at the beginning of `_PTS` method
   - Add `\_SB.PCI0.RP05.PEGP._OFF()` at the end of `_WAK` method, but before `Return` statement
   - Add `\_SB.PCI0.RP05.PEGP._OFF()` at the end of `SB.PCI0._INI` method
+
+5. 

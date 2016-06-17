@@ -6950,7 +6950,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
                 Local1 = REG6
                 REG6 = 0x00F0F000
-                REG6 = Local1 = \_GPE.MMTB (Local2, \_GPE.OSUP (Local2))
+                
+                \_GPE.OSUP (\_GPE.MMTB())
+                Local1 = REG6
+                
                 Release (OSUM)
             }
 
@@ -7455,7 +7458,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
                 Local2 = REG6
                 REG6 = 0x00F0F000
-                REG6 = Local2 = \_GPE.MMTB (Local3, \_GPE.OSUP (Local3))
+                
+                \_GPE.OSUP (\_GPE.MMTB())
+                Local2 = REG6
+                
                 Release (OSUM)
                 Acquire (WFDM, 0xFFFF)
                 WKFN = One

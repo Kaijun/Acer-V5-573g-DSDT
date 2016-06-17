@@ -45,7 +45,7 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
     SLPE, 1
   }
   ```
-  - In `_PTS` method, before `If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))`
+  - In `_PTS` method, at the end but before `If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))`
   ```
   If (LEqual (Arg0, 0x05))
   {

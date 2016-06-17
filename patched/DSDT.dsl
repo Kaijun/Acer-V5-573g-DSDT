@@ -6643,6 +6643,13 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
         GPIC = Arg0
         PICM = Arg0
     }
+    
+  OperationRegion (PMRS, SystemIO, 0x1830, One)
+  Field (PMRS, ByteAcc, NoLock, Preserve)
+  {
+    , 4,
+    SLPE, 1
+  }
 
     Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
     {
@@ -6740,6 +6747,16 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             P8XH (0x04, 0x55, Zero)
             P8XH (0x04, 0x55, One)
         }
+        
+  If (LEqual (Arg0, 0x05))
+  {
+      P8XH (0x04, 0x55, Zero)
+      P8XH (0x04, 0x55, One)
+                              //added to fix shutdown
+      Store (Zero, SLPE)
+      Sleep (0x10)
+      
+  }
 
         If (((Arg0 == 0x03) || (Arg0 == 0x04)))
         {

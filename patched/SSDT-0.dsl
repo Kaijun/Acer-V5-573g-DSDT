@@ -54,7 +54,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
     External (_SB_.PCI0.GFX0.DD01._DGS, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.GFX0.DD02._ADR, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.GFX0.DD02._BCL, IntObj)
-    External (_SB_.PCI0.GFX0.DD02._BCM, IntObj)
+    External(_SB_.PCI0.GFX0.DD02._BCM,MethodObj)
     External (_SB_.PCI0.GFX0.DD02._BQC, IntObj)
     External (_SB_.PCI0.GFX0.DD02._DCS, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.GFX0.DD02._DGS, MethodObj)    // 0 Arguments
@@ -496,8 +496,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_BCM, 1, NotSerialized)  // _BCM: Brightness Control Method
             {
-                Return (\_SB.PCI0.GFX0.DD02._BCM)
-                Arg0
+                Return(\_SB.PCI0.GFX0.DD02._BCM(Arg0))
             }
         }
 

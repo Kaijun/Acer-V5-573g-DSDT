@@ -64,3 +64,7 @@
   - Apply Patch `USB3 _PRW 0x6D`: Check the description in patch if you're interested. It will fix almost all the USB related stuffs.
   - As Rehabman mentioned, rename EHC* and XHC are not the long term solution. So a patch in Clover 45484331 -> 45483031 is then the tempory solution. It works only with two Kexts provided by Rehabman: `FakePCIID_XHCIMux.kext` + `USBInjectAll.kext`
 
+  
+8. Audio Fix
+  - Apply Patch `Audio Layout 03`,  works together with AppleHDA/DummyHDA with 03 Layout.
+

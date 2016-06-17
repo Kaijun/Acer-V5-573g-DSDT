@@ -13,3 +13,13 @@ mkdir clean && mv raw/*.dsl clean/
   - DSDT: method local variable is not initialized: [Solution Ref #272](http://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/page-28#post-1036066)
   - SSDT-0: [Solution Ref #213](http://www.insanelymac.com/forum/topic/290687-wip-hp-envy-17t-j000-quad-haswell-1085109x1010x1011x/?p=1975006)
   - SSDT-4: Remove it! We will generate an SSDT for our own CPU SpeedStepping later.
+
+4. Disable Nvdia:
+  - At the top of DSDT, add
+```
+External (_SB_.PCI0.RP05.PEGP._OFF, MethodObj) // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+```
+  - Add `\_SB.PCI0.RP05.PEGP._ON()` at the beginning of `_PTS` method
+  - Add `\_SB.PCI0.RP05.PEGP._OFF()` at the end of `_WAK` method, but before `Return` statement
+  - Add `\_SB.PCI0.RP05.PEGP._OFF()` at the end of `SB.PCI0._INI` method

@@ -97,6 +97,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
     External (PDC7, IntObj)
     External (PR08, IntObj)
     External (SGMD, FieldUnitObj)
+    
+    External (_SB_.PCI0.RP05.PEGP._OFF, MethodObj) // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
 
     Name (SS1, Zero)
     Name (SS2, Zero)
@@ -6643,6 +6646,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
     Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
     {
+        \_SB.PCI0.RP05.PEGP._ON ()
         P80D = Zero
         P8XH (Zero, Arg0, Zero)
         SLPS = Arg0
@@ -7048,7 +7052,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             Release (WFDM)
             ADBG (Concatenate ("_WAK=", ToHexString (Timer)))
         }
-
+        
+        \_SB.PCI0.RP05.PEGP._OFF ()
+        
         Return (Package (0x02)
         {
             Zero, 
@@ -7467,6 +7473,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 WKFN = One
                 Release (WFDM)
             }
+            
+            
+            \_SB.PCI0.RP05.PEGP._OFF ()
         }
 
         Method (NHPG, 0, Serialized)

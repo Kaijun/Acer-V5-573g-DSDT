@@ -392,7 +392,7 @@ DefinitionBlock ("acpi_ssdt2.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
             }
         }
 
-        Device (GFX0)
+        Device (IGPU)
         {
             Name (_ADR, 0x00020000)  // _ADR: Address
             Method (_INI, 0, NotSerialized)  // _INI: Initialize
@@ -1850,7 +1850,7 @@ DefinitionBlock ("acpi_ssdt2.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
                 {
                     If (((Arg0 >= Zero) && (Arg0 <= 0x64)))
                     {
-                        \_SB.PCI0.GFX0.AINT (One, Arg0)
+                        \_SB.PCI0.IGPU.AINT (One, Arg0)
                         BRTL = Arg0
                     }
                 }
@@ -2595,7 +2595,7 @@ DefinitionBlock ("acpi_ssdt2.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
                     }
                     Else
                     {
-                        Notify (\_SB.PCI0.GFX0, Arg1)
+                        Notify (\_SB.PCI0.IGPU, Arg1)
                     }
                 }
 
@@ -2605,7 +2605,7 @@ DefinitionBlock ("acpi_ssdt2.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
                 }
                 Else
                 {
-                    Notify (\_SB.PCI0.GFX0, 0x80)
+                    Notify (\_SB.PCI0.IGPU, 0x80)
                 }
 
                 Return (Zero)

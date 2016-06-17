@@ -1,13 +1,14 @@
 ###Process of Modifying DSDT
 ==========
 
-1. Download [iasl51](https://bitbucket.org/RehabMan/acpica/downloads) use iasl to extract clean DSDT/SSDTs from raw DSDT/SSDTs
-```
-./iasl51 -da *.aml
-// move clean dsl files to clean/ , you can also do it manually!
-mkdir clean && mv raw/*.dsl clean/
-```
-2. Download [MaciASL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads) and start editing clean dsl files. Add [Laptop-DSDT-Patch] repo into MaciASL. If you are doing all things correct, you will get few errors to be fixed in DSDT.dsl (i only got 4 errors).
+1.  Download [iasl51](https://bitbucket.org/RehabMan/acpica/downloads) use iasl to extract clean DSDT/SSDTs from raw DSDT/SSDTs
+  ```
+  ./iasl51 -da *.aml
+  // move clean dsl files to clean/ , you can also do it manually!
+  mkdir clean && mv raw/*.dsl clean/
+  ```
+  
+2.  Download [MaciASL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads) and start editing clean dsl files. Add [Laptop-DSDT-Patch] repo into MaciASL. If you are doing all things correct, you will get few errors to be fixed in DSDT.dsl (i only got 4 errors).
 
 3. Fix errors (My own errors, I don't know How yours look like): 
   - DSDT: method local variable is not initialized: [Solution Ref #272](http://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/page-28#post-1036066)
@@ -16,10 +17,11 @@ mkdir clean && mv raw/*.dsl clean/
 
 4. Disable Nvdia:
   - At the top of DSDT, add
-```
-External (_SB_.PCI0.RP05.PEGP._OFF, MethodObj) // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-```
+  ```
+  External (_SB_.PCI0.RP05.PEGP._OFF, MethodObj) // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+  External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+  ```
+
   - Add `\_SB.PCI0.RP05.PEGP._ON()` at the beginning of `_PTS` method
   - Add `\_SB.PCI0.RP05.PEGP._OFF()` at the end of `_WAK` method, but before `Return` statement
   - Add `\_SB.PCI0.RP05.PEGP._OFF()` at the end of `SB.PCI0._INI` method
@@ -57,3 +59,5 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
       
   }
   ```
+  
+7. TBD

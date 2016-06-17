@@ -1,4 +1,4 @@
-###Process of Modifying DSDT
+###Process of Modifying DSDT (Based On Tables from Bios 2.30)
 ==========
 
 1.  Download [iasl51](https://bitbucket.org/RehabMan/acpica/downloads) use iasl to extract clean DSDT/SSDTs from raw DSDT/SSDTs
@@ -8,11 +8,46 @@
   mkdir clean && mv raw/*.dsl clean/
   ```
   
+  As i know, different Models have different DSDT/SSDTs structures:
+  For my own Model: i5 Version non-HD:
+  ```
+  DSDT - we all have it!
+  SSDT0 - Nvidia Graphical Card part! Which contains lot of `\_SB.PCI0` scopes
+  SSDT1 - Unknown, but keep it! Contains only one scope `\_SB` and one device `IAOE`
+  SSDT2 - Internal Graphical Card part! Which contains one `\_SB.PCI0` scopes and `B0D3`(or different) and `GFX0` device
+  SSDT3,4 - CPU part. You will see lot of `CPU` scopes. Just **Remove** them! We don't need it! We generate SSDT for CPU later with tools.
+  ```
+  
+  Others like i7 Version HD, or maybe i5 Version HD:
+  ```
+  DSDT - we all have it!
+  SSDT0-4 - CPU part. You will see lot of `CPU` scopes. Just **Remove** them! We don't need it! We generate SSDT for CPU later with tools.
+  SSDT5 - Internal Graphical Card part! Which contains one `\_SB.PCI0` scopes and `B0D3`(or different) and `GFX0` device
+  SSDT6 - Nvidia Graphical Card part! Which contains lot of `\_SB.PCI0` scopes
+  SSDT7 - Unknown, but keep it! Contains only one scope `\_SB` and one device `IAOE`
+  ```
+  
+  **Notice**! My tutorial is based on the structure of mine! Please notice your filenames and fit to your own related DSDT/SSDTs! 
 2.  Download [MaciASL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads) and start editing clean dsl files. Add [Laptop-DSDT-Patch](https://github.com/RehabMan/Laptop-DSDT-Patch) repo into MaciASL. If you are doing all things correctly, you will get few errors to be fixed in DSDT.dsl (i only got 4 errors).
 
 3. Fix errors (My own errors, I don't know How yours look like): 
-  - DSDT: method local variable is not initialized: [Solution Ref #272](http://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/page-28#post-1036066)
-  - SSDT-0: [Solution Ref #213](http://www.insanelymac.com/forum/topic/290687-wip-hp-envy-17t-j000-quad-haswell-1085109x1010x1011x/?p=1975006)
+  - DSDT: method local variable is not initialized: [Solution Ref #268](http://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/page-27#post-1036066)
+  ```
+  //original with error
+  REG6 = Local1 = \_GPE.MMTB (Local2, \_GPE.OSUP (Local2))
+  //means
+  Local2 = \_GPE.MMTB ()
+  \_GPE.OSUP(Local2)
+  REG6 = Local1
+  //optimization! We use this!!!
+  \_GPE.OSUP (\_GPE.MMTB())
+  Local1 = REG6
+  ```
+  - SSDT-0: [Solution Ref #213](http://www.insanelymac.com/forum/topic/290687-wip-hp-envy-17t-j000-quad-haswell-1085109x1010x1011x/?p=1975006) Apply Patch:
+  ```
+  into method label _BCM parent_label DD02 code_regex Return\s\((.*)\)\n\s+(.*) replace_matched begin Return(%1(%2)) end;
+  into definitionblock code_regex External\s\((.*\._BCM),\s+IntObj\) replace_matched begin External(%1,MethodObj) end;
+  ```
   - SSDT-3/4: Remove Them! We will generate an SSDT for our own CPU SpeedStepping later.
 
 4. Disable Nvdia:
@@ -35,7 +70,7 @@
     ```
     * Apply Patch `Rename GFX0 to IGPU` -> `Remove _DSM Method`
   - SSDT-1: Apply Patch `Rename GFX0 to IGPU`
-  - SSDT-2: Apply Patch `Haswell HD4400` -> `Rename GFX0 to IGPU` -> `Brightness fix Haswell`
+  - SSDT-2(Internal Graphic): Apply Patch `Haswell HD4400` -> `Rename GFX0 to IGPU` -> `Brightness fix Haswell`
 
 6. Shutdown Fix in `DSDT`:
   - Before `_PTS` method, add

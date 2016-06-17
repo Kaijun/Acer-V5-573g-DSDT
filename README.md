@@ -35,3 +35,25 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
   - SSDT-1: Apply Patch `Rename GFX0 to IGPU`
   - SSDT-2: Apply Patch `Haswell HD4400` -> `Rename GFX0 to IGPU` -> `Brightness fix Haswell`
 
+6. Shutdown Fix in `DSDT`:
+  - Before `_PTS` method, add
+  ```
+  OperationRegion (PMRS, SystemIO, 0x1830, One)
+  Field (PMRS, ByteAcc, NoLock, Preserve)
+  {
+    , 4,
+    SLPE, 1
+  }
+  ```
+  - In `_PTS` method, before `If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))`
+  ```
+  If (LEqual (Arg0, 0x05))
+  {
+      P8XH (0x04, 0x55, Zero)
+      P8XH (0x04, 0x55, One)
+                              //added to fix shutdown
+      Store (Zero, SLPE)
+      Sleep (0x10)
+      
+  }
+  ```

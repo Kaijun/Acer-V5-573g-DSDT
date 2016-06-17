@@ -4047,54 +4047,22 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 {
                     Name (_HID, EisaId ("PNP0103"))  // _HID: Hardware ID
                     Name (_UID, Zero)  // _UID: Unique ID
-                    Name (BUF0, ResourceTemplate ()
-                    {
+                    Name (BUF0, ResourceTemplate()
+{
+    IRQNoFlags() { 0, 8, 11, 15 }
+
                         Memory32Fixed (ReadWrite,
                             0xFED00000,         // Address Base
                             0x00000400,         // Address Length
                             _Y0F)
                     })
-                    Method (_STA, 0, NotSerialized)  // _STA: Status
+
+                    
+
+                    
+                    Name (_STA, 0x0F)
+                    Method (_CRS, 0, NotSerialized)
                     {
-                        If ((OSYS >= 0x07D1))
-                        {
-                            If (HPAE)
-                            {
-                                Return (0x0F)
-                            }
-                        }
-                        Else
-                        {
-                            If (HPAE)
-                            {
-                                Return (0x0B)
-                            }
-                        }
-
-                        Return (Zero)
-                    }
-
-                    Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
-                    {
-                        If (HPAE)
-                        {
-                            CreateDWordField (BUF0, \_SB.PCI0.LPCB.HPET._Y0F._BAS, HPT0)  // _BAS: Base Address
-                            If ((HPAS == One))
-                            {
-                                HPT0 = 0xFED01000
-                            }
-
-                            If ((HPAS == 0x02))
-                            {
-                                HPT0 = 0xFED02000
-                            }
-
-                            If ((HPAS == 0x03))
-                            {
-                                HPT0 = 0xFED03000
-                            }
-                        }
-
                         Return (BUF0)
                     }
                 }
@@ -4206,8 +4174,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                             0x01,               // Alignment
                             0x02,               // Length
                             )
-                        IRQNoFlags ()
-                            {2}
+                        
                     })
                 }
 
@@ -4353,8 +4320,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                             0x01,               // Alignment
                             0x08,               // Length
                             )
-                        IRQNoFlags ()
-                            {8}
+                        
                     })
                 }
 
@@ -4375,8 +4341,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                             0x10,               // Alignment
                             0x04,               // Length
                             )
-                        IRQNoFlags ()
-                            {0}
+                        
                     })
                 }
 

@@ -6746,17 +6746,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
         {
             P8XH (0x04, 0x55, Zero)
             P8XH (0x04, 0x55, One)
-        }
-        
-  If (LEqual (Arg0, 0x05))
-  {
-      P8XH (0x04, 0x55, Zero)
-      P8XH (0x04, 0x55, One)
                               //added to fix shutdown
       Store (Zero, SLPE)
       Sleep (0x10)
-      
-  }
+        }
+        
+        
 
         If (((Arg0 == 0x03) || (Arg0 == 0x04)))
         {

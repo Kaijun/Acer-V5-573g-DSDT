@@ -22,11 +22,11 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 {
 
     External (_SB_.IFFS.FFSS, UnknownObj)
-    External (_SB_.PCI0.GFX0.ASLC, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.ASLE, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.PARD, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.STAT, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.TCHE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.ASLC, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.ASLE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.PARD, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.STAT, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.TCHE, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC0_.AWT0, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC0_.AWT1, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC0_.AWT2, FieldUnitObj)
@@ -128,18 +128,18 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                     }
                 }
 
-                If ((\_SB.PCI0.GFX0.TCHE & 0x0100))
+                If ((\_SB.PCI0.IGPU.TCHE & 0x0100))
                 {
                     If ((ITMR == One))
                     {
                         If ((((IBT1 & One) && (\_SB.IAOE.WKRS & 0x02)) && !
                             (Arg0 & One)))
                         {
-                            If (!\_SB.PCI0.GFX0.PARD ())
+                            If (!\_SB.PCI0.IGPU.PARD ())
                             {
-                                \_SB.PCI0.GFX0.STAT = (\_SB.PCI0.GFX0.STAT & 0xFFFFFFFC)
-                                \_SB.PCI0.GFX0.ASLC = (\_SB.PCI0.GFX0.ASLC | 0x0100)
-                                \_SB.PCI0.GFX0.ASLE = One
+                                \_SB.PCI0.IGPU.STAT = (\_SB.PCI0.IGPU.STAT & 0xFFFFFFFC)
+                                \_SB.PCI0.IGPU.ASLC = (\_SB.PCI0.IGPU.ASLC | 0x0100)
+                                \_SB.PCI0.IGPU.ASLE = One
                             }
                         }
                     }
@@ -150,11 +150,11 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                             If ((((\_SB.PCI0.LPCB.EC0.IBT1 & One) && (\_SB.IAOE.WKRS & 0x02)) && !
                                 (Arg0 & One)))
                             {
-                                If (!\_SB.PCI0.GFX0.PARD ())
+                                If (!\_SB.PCI0.IGPU.PARD ())
                                 {
-                                    \_SB.PCI0.GFX0.STAT = (\_SB.PCI0.GFX0.STAT & 0xFFFFFFFC)
-                                    \_SB.PCI0.GFX0.ASLC = (\_SB.PCI0.GFX0.ASLC | 0x0100)
-                                    \_SB.PCI0.GFX0.ASLE = One
+                                    \_SB.PCI0.IGPU.STAT = (\_SB.PCI0.IGPU.STAT & 0xFFFFFFFC)
+                                    \_SB.PCI0.IGPU.ASLC = (\_SB.PCI0.IGPU.ASLC | 0x0100)
+                                    \_SB.PCI0.IGPU.ASLE = One
                                 }
                             }
                         }

@@ -24,4 +24,14 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
   - Add `\_SB.PCI0.RP05.PEGP._OFF()` at the end of `_WAK` method, but before `Return` statement
   - Add `\_SB.PCI0.RP05.PEGP._OFF()` at the end of `SB.PCI0._INI` method
 
-5. 
+5. Graphic Fix:
+  - SSDT-0 (Nvidia Graphic fix):
+    * Apply Patch to prevent nvidia graphic card overwriting the internal one:
+    ```
+    into scope label \_SB.PCI0.GFX0 remove_entry;
+    into device label WMI1 remove_entry;
+    ```
+    * Apply Patch `Rename GFX0 to IGPU` -> `Remove _DSM Method`
+  - SSDT-1: Apply Patch `Rename GFX0 to IGPU`
+  - SSDT-2: Apply Patch `Haswell HD4400` -> `Rename GFX0 to IGPU` -> `Brightness fix Haswell`
+

@@ -83,6 +83,21 @@
   // Brightness Up\n
       Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)\n
   end;
-  
   ```
 10. Wait for your contribution!
+
+
+###SSDT Generation
+[`ssdtPRGen.sh`](https://github.com/Piker-Alpha/ssdtPRGen.sh) is the tool we are using.
+```
+curl -o ssdtPRGen.sh https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/Beta/ssdtPRGen.sh
+chmod +x ssdtPRGen.sh
+./ssdtPRGen.sh -x 1 -p 'i5-4200U'
+```
+```
+ASL Input:     /Users/Kaijun/Library/ssdtPRGen/ssdt.dsl - 264 lines, 7903 bytes, 49 keywords
+AML Output:    /Users/Kaijun/Library/ssdtPRGen/ssdt.aml - 1619 bytes, 16 named objects, 33 executable opcodes
+```
+Copy `ssdt.aml` to Clover!
+**Notice**: i5-4200U is my CPU model, replace with yours!
+

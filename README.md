@@ -45,13 +45,13 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
     SLPE, 1
   }
   ```
-  - In `_PTS` method, at the end but before `If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))`
+  - In `_PTS` method, in `If (LEqual (Arg0, 0x05))` method add:
   ```
   If (LEqual (Arg0, 0x05))
   {
       P8XH (0x04, 0x55, Zero)
       P8XH (0x04, 0x55, One)
-                              //added to fix shutdown
+      //added to fix shutdown
       Store (Zero, SLPE)
       Sleep (0x10)
       

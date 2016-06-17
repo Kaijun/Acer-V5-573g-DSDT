@@ -70,7 +70,7 @@
   - Apply Patch `HEPT Fix`, `IRQ Fix`
 
 9. Brightness Keys (*** Only for Synaptics with VoodooPS2 ***) [(Tutorial)](http://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/)
-  - Seems that Keys can't be captured under El Capitain? **Don't** Apple the Patch below ~~Apply patch below: (Notice: _Q8E and _Q8F are what i captured with ACPIDebug.kext, i don't know if yours is same as mine)~~
+  - Seems that Keys can't be captured under El Capitain? **Don't** Apple the Patch below! ~~Apply patch below: (Notice: _Q8E and _Q8F are what i captured with ACPIDebug.kext, i don't know if yours is same as mine)~~
   ```
   # Make EC-based brightness up/down work with RehabMan VoodooPS2 ACPI keyboard mechanism
   into method label _Q8E replace_content

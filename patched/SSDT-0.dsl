@@ -33,43 +33,43 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
     External (_PR_.CPU7, ProcessorObj)
     External (_SB_.OSCO, IntObj)
     External (_SB_.PCI0, DeviceObj)
-    External (_SB_.PCI0.GFX0, DeviceObj)
-    External (_SB_.PCI0.GFX0.CADL, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL2, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL3, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL4, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL5, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL6, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL7, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL8, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPDL, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL2, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL3, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL4, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL5, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL6, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL7, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL8, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.DD01._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD01._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD02._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD02._BCL, IntObj)
-    External(_SB_.PCI0.GFX0.DD02._BCM,MethodObj)
-    External (_SB_.PCI0.GFX0.DD02._BQC, IntObj)
-    External (_SB_.PCI0.GFX0.DD02._DCS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD02._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD03._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD03._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD04._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD04._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD05._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD05._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD06._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD06._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD07._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD07._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD08._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD08._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU, DeviceObj)
+    External (_SB_.PCI0.IGPU.CADL, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL2, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL3, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL4, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL5, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL6, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL7, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL8, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPDL, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL2, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL3, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL4, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL5, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL6, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL7, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL8, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.DD01._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD01._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD02._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD02._BCL, IntObj)
+    External(_SB_.PCI0.IGPU.DD02._BCM,MethodObj)
+    External (_SB_.PCI0.IGPU.DD02._BQC, IntObj)
+    External (_SB_.PCI0.IGPU.DD02._DCS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD02._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD03._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD03._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD04._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD04._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD05._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD05._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD06._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD06._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD07._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD07._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD08._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD08._DGS, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.LPCB.EC0_.CTMP, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC0_.GPSW, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC0_.SCTB, MethodObj)    // 0 Arguments
@@ -288,7 +288,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD01._ADR ())
+                Return (\_SB.PCI0.IGPU.DD01._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -297,7 +297,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD01._DGS ())
+                Return (\_SB.PCI0.IGPU.DD01._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -309,17 +309,17 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD02._ADR ())
+                Return (\_SB.PCI0.IGPU.DD02._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
             {
-                Return (\_SB.PCI0.GFX0.DD02._DCS ())
+                Return (\_SB.PCI0.IGPU.DD02._DCS ())
             }
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD02._DGS ())
+                Return (\_SB.PCI0.IGPU.DD02._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -328,17 +328,17 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_BCL, 0, NotSerialized)  // _BCL: Brightness Control Levels
             {
-                Return (\_SB.PCI0.GFX0.DD02._BCL)
+                Return (\_SB.PCI0.IGPU.DD02._BCL)
             }
 
             Method (_BQC, 0, NotSerialized)  // _BQC: Brightness Query Current
             {
-                Return (\_SB.PCI0.GFX0.DD02._BQC)
+                Return (\_SB.PCI0.IGPU.DD02._BQC)
             }
 
             Method (_BCM, 1, NotSerialized)  // _BCM: Brightness Control Method
             {
-                Return(\_SB.PCI0.GFX0.DD02._BCM(Arg0))
+                Return(\_SB.PCI0.IGPU.DD02._BCM(Arg0))
             }
         }
 
@@ -346,7 +346,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD03._ADR ())
+                Return (\_SB.PCI0.IGPU.DD03._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -355,7 +355,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD03._DGS ())
+                Return (\_SB.PCI0.IGPU.DD03._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -367,7 +367,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD04._ADR ())
+                Return (\_SB.PCI0.IGPU.DD04._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -376,7 +376,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD04._DGS ())
+                Return (\_SB.PCI0.IGPU.DD04._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -388,7 +388,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD05._ADR ())
+                Return (\_SB.PCI0.IGPU.DD05._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -397,7 +397,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD05._DGS ())
+                Return (\_SB.PCI0.IGPU.DD05._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -409,7 +409,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD06._ADR ())
+                Return (\_SB.PCI0.IGPU.DD06._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -418,7 +418,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD06._DGS ())
+                Return (\_SB.PCI0.IGPU.DD06._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -430,7 +430,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD07._ADR ())
+                Return (\_SB.PCI0.IGPU.DD07._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -439,7 +439,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD07._DGS ())
+                Return (\_SB.PCI0.IGPU.DD07._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -451,7 +451,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD08._ADR ())
+                Return (\_SB.PCI0.IGPU.DD08._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -460,7 +460,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD08._DGS ())
+                Return (\_SB.PCI0.IGPU.DD08._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -769,240 +769,240 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         Name (MSTE, Zero)
         Method (VSTS, 0, NotSerialized)
         {
-            If ((\_SB.PCI0.GFX0.CPDL != Zero))
+            If ((\_SB.PCI0.IGPU.CPDL != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CPDL == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CPDL == (DID1 & 0xFFFF)))
                 {
                     GATD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CPDL == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CPDL == (DID2 & 0xFFFF)))
                     {
                         GATD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CPL2 != Zero))
+            If ((\_SB.PCI0.IGPU.CPL2 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CPL2 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CPL2 == (DID1 & 0xFFFF)))
                 {
                     GATD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CPL2 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CPL2 == (DID2 & 0xFFFF)))
                     {
                         GATD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CPL3 != Zero))
+            If ((\_SB.PCI0.IGPU.CPL3 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CPL3 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CPL3 == (DID1 & 0xFFFF)))
                 {
                     GATD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CPL3 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CPL3 == (DID2 & 0xFFFF)))
                     {
                         GATD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CPL4 != Zero))
+            If ((\_SB.PCI0.IGPU.CPL4 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CPL4 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CPL4 == (DID1 & 0xFFFF)))
                 {
                     GATD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CPL4 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CPL4 == (DID2 & 0xFFFF)))
                     {
                         GATD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CPL5 != Zero))
+            If ((\_SB.PCI0.IGPU.CPL5 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CPL5 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CPL5 == (DID1 & 0xFFFF)))
                 {
                     GATD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CPL5 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CPL5 == (DID2 & 0xFFFF)))
                     {
                         GATD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CPL6 != Zero))
+            If ((\_SB.PCI0.IGPU.CPL6 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CPL6 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CPL6 == (DID1 & 0xFFFF)))
                 {
                     GATD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CPL6 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CPL6 == (DID2 & 0xFFFF)))
                     {
                         GATD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CPL7 != Zero))
+            If ((\_SB.PCI0.IGPU.CPL7 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CPL7 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CPL7 == (DID1 & 0xFFFF)))
                 {
                     GATD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CPL7 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CPL7 == (DID2 & 0xFFFF)))
                     {
                         GATD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CPL8 != Zero))
+            If ((\_SB.PCI0.IGPU.CPL8 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CPL8 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CPL8 == (DID1 & 0xFFFF)))
                 {
                     GATD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CPL8 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CPL8 == (DID2 & 0xFFFF)))
                     {
                         GATD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CADL != Zero))
+            If ((\_SB.PCI0.IGPU.CADL != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CADL == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CADL == (DID1 & 0xFFFF)))
                 {
                     GACD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CADL == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CADL == (DID2 & 0xFFFF)))
                     {
                         GACD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CAL2 != Zero))
+            If ((\_SB.PCI0.IGPU.CAL2 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CAL2 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CAL2 == (DID1 & 0xFFFF)))
                 {
                     GACD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CAL2 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CAL2 == (DID2 & 0xFFFF)))
                     {
                         GACD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CAL3 != Zero))
+            If ((\_SB.PCI0.IGPU.CAL3 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CAL3 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CAL3 == (DID1 & 0xFFFF)))
                 {
                     GACD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CAL3 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CAL3 == (DID2 & 0xFFFF)))
                     {
                         GACD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CAL4 != Zero))
+            If ((\_SB.PCI0.IGPU.CAL4 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CAL4 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CAL4 == (DID1 & 0xFFFF)))
                 {
                     GACD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CAL4 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CAL4 == (DID2 & 0xFFFF)))
                     {
                         GACD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CAL5 != Zero))
+            If ((\_SB.PCI0.IGPU.CAL5 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CAL5 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CAL5 == (DID1 & 0xFFFF)))
                 {
                     GACD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CAL5 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CAL5 == (DID2 & 0xFFFF)))
                     {
                         GACD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CAL6 != Zero))
+            If ((\_SB.PCI0.IGPU.CAL6 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CAL6 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CAL6 == (DID1 & 0xFFFF)))
                 {
                     GACD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CAL6 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CAL6 == (DID2 & 0xFFFF)))
                     {
                         GACD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CAL7 != Zero))
+            If ((\_SB.PCI0.IGPU.CAL7 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CAL7 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CAL7 == (DID1 & 0xFFFF)))
                 {
                     GACD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CAL7 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CAL7 == (DID2 & 0xFFFF)))
                     {
                         GACD |= One
                     }
                 }
             }
 
-            If ((\_SB.PCI0.GFX0.CAL8 != Zero))
+            If ((\_SB.PCI0.IGPU.CAL8 != Zero))
             {
-                If ((\_SB.PCI0.GFX0.CAL8 == (DID1 & 0xFFFF)))
+                If ((\_SB.PCI0.IGPU.CAL8 == (DID1 & 0xFFFF)))
                 {
                     GACD |= 0x02
                 }
                 Else
                 {
-                    If ((\_SB.PCI0.GFX0.CAL8 == (DID2 & 0xFFFF)))
+                    If ((\_SB.PCI0.IGPU.CAL8 == (DID2 & 0xFFFF)))
                     {
                         GACD |= One
                     }
@@ -1568,62 +1568,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
             Return (Zero)
         }
 
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
-        {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-            If ((Arg0 == ToUUID ("a3132d01-8cda-49ba-a52e-bc9d46df6b81")))
-            {
-                Return (\_SB.PCI0.RP05.PEGP.GPS (Arg0, Arg1, Arg2, Arg3))
-            }
-
-            If ((Arg0 == ToUUID ("a486d8f8-0bda-471b-a72b-6042a6b5bee0")))
-            {
-                Return (\_SB.PCI0.RP05.PEGP.NVOP (Arg0, Arg1, Arg2, Arg3))
-            }
-
-            If ((Arg0 == ToUUID ("4004a400-917d-4cf2-b89c-79b62fd55665")))
-            {
-                While (One)
-                {
-                    _T_0 = ToInteger (Arg2)
-                    If ((_T_0 == Zero))
-                    {
-                        Return (Buffer (0x04)
-                        {
-                             0x01, 0x00, 0x01, 0x01                         
-                        })
-                    }
-                    Else
-                    {
-                        If ((_T_0 == 0x18))
-                        {
-                            Return (Unicode ("0"))
-                        }
-                        Else
-                        {
-                            If ((_T_0 == 0x10))
-                            {
-                                If ((Arg1 == 0x0300))
-                                {
-                                    Name (MXM3, Buffer (MXBS)
-                                    {
-                                         0x00                                           
-                                    })
-                                    MXM3 = MXMB
-                                    Return (MXM3)
-                                }
-                            }
-                        }
-                    }
-
-                    Break
-                }
-
-                Return (0x80000002)
-            }
-
-            Return (0x80000001)
-        }
+        
     }
 
     If (\_OSI ("Windows 2013"))

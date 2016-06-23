@@ -12,7 +12,7 @@
   For my own Model: i5 Version non-HD:
   ```
   DSDT - we all have it!
-  SSDT0 - Nvidia Graphical Card part! Which contains lot of `\_SB.PCI0` scopes
+  SSDT0 - Nvidia Graphical Card parAt! Which contains lot of `\_SB.PCI0` scopes
   SSDT1 - Unknown, but keep it! Contains only one scope `\_SB` and one device `IAOE`
   SSDT2 - Internal Graphical Card part! Which contains one `\_SB.PCI0` scopes and `B0D3`(or different) and `GFX0` device
   SSDT3,4 - CPU part. You will see lot of `CPU` scopes. Just **Remove** them! We don't need it! We generate SSDT for CPU later with tools.
@@ -105,7 +105,7 @@
   - Apply Patch `HEPT Fix`, `IRQ Fix`
 
 9. Brightness Keys (*** Only for Synaptics with VoodooPS2 ***) [(Tutorial)](http://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/)
-  - Seems that Keys can't be captured under El Capitain? **Don't** Apple the Patch below! ~~Apply patch below: (Notice: _Q8E and _Q8F are what i captured with ACPIDebug.kext, i don't know if yours is same as mine)~~
+  - Seems that Keys can't be captured under El Capitain? **Don't** Apply the Patch below! ~~Apply patch below: (Notice: _Q8E and _Q8F are what i captured with ACPIDebug.kext, i don't know if yours is same as mine)~~
   ```
   # Make EC-based brightness up/down work with RehabMan VoodooPS2 ACPI keyboard mechanism
   into method label _Q8E replace_content

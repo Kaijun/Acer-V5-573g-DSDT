@@ -9450,7 +9450,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     }
                 }
             }
-            Method(_PRW) { Return(Package() { 0x6D, 0 }) }
+            Name(_PRW, Package() { 0x6D, 0 })
             Method (_DSM, 4, NotSerialized)
             {
                 If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
@@ -10827,7 +10827,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     }
                 }
             }
-            Method(_PRW) { Return(Package() { 0x6D, 0 }) }
+            Name(_PRW, Package() { 0x6D, 0 })
             Method (_DSM, 4, NotSerialized)
             {
                 If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
@@ -10863,7 +10863,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     ,   6, 
                 PMES,   1
             }
-            Method(_PRW) { Return(Package() { 0x6D, 0 }) }
+            
+            Name(_PRW, Package() { 0x6D, 0 })
             Method (_DSM, 4, NotSerialized)
             {
                 If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
@@ -13822,7 +13823,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 HCON |= 0x02
                 HSTS |= 0xFF
             }
-            Method(_PRW) { Return(Package() { 0x6D, 0 }) }
         }
     }
 

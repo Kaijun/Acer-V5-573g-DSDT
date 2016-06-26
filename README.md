@@ -70,7 +70,6 @@
   
 8. Audio Fix
   - Apply Patch `Audio Layout 03`,  works together with AppleHDA/DummyHDA with 03 Layout.
-  - Apply Patch `HEPT Fix`, `IRQ Fix`
 
 
 9. Shutdown Fix in `DSDT`:

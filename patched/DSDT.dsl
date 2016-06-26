@@ -10872,6 +10872,17 @@ Store (Zero, P80D)
                 PMES,   1
             }
             Name(_PRW, Package() { 0x6D, 0 })
+            Method (_DSM, 4, NotSerialized)
+            {
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
+                {
+                    "layout-id", Buffer() { 3, 0x00, 0x00, 0x00 },
+                    "hda-gfx", Buffer() { "onboard-1" },
+                    "PinConfigurations", Buffer() { },
+                    //"MaximumBootBeepVolume", 77,
+                })
+            }
 
             
         }

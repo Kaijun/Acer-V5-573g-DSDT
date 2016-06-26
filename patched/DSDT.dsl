@@ -53,7 +53,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
      */
     External (_GPE.MMTB, MethodObj)    // 0 Arguments
     External (_GPE.VHOV, MethodObj)    // 3 Arguments
-    External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.DD02._BCM, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // 2 Arguments
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
@@ -74,26 +74,26 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
     External (_SB_.IFFS.FFSS, UnknownObj)
     External (_SB_.PCI0.B0D3.ABAR, FieldUnitObj)
     External (_SB_.PCI0.B0D3.BARA, IntObj)
-    External (_SB_.PCI0.GFX0.AINT, MethodObj)    // 2 Arguments
-    External (_SB_.PCI0.GFX0.BLM0, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.BLM1, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.BLM2, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.BLM3, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.BLM4, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.BLM5, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.BLM6, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.BLM7, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.BLM8, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.BLM9, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.BLMX, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CLID, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.DD1F, UnknownObj)
-    External (_SB_.PCI0.GFX0.GHDS, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.GSSE, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.IUEH, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.STAT, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.TCHE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.AINT, MethodObj)    // 2 Arguments
+    External (_SB_.PCI0.IGPU.BLM0, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.BLM1, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.BLM2, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.BLM3, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.BLM4, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.BLM5, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.BLM6, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.BLM7, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.BLM8, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.BLM9, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.BLMX, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CLID, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.DD1F, UnknownObj)
+    External (_SB_.PCI0.IGPU.GHDS, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.GSCI, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.GSSE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.IUEH, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.STAT, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.TCHE, FieldUnitObj)
     External (_SB_.PCI0.RP05.LNKD, FieldUnitObj)
     External (_SB_.PCI0.RP05.PEGP.DD01, UnknownObj)
     External (AR08, IntObj)
@@ -3177,12 +3177,12 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
                             If (LIDT)
                             {
                                 Store (Zero, LIDS)
-                                Store (Zero, ^^^GFX0.CLID)
+                                Store (Zero, ^^^IGPU.CLID)
                             }
                             Else
                             {
                                 Store (One, LIDS)
-                                Store (One, ^^^GFX0.CLID)
+                                Store (One, ^^^IGPU.CLID)
                             }
                         }
                     }
@@ -3758,7 +3758,7 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
                         {
                             If (LOr (LEqual (SGST, 0x04), LEqual (SGST, Zero)))
                             {
-                                Notify (^^^GFX0.DD1F, 0x86)
+                                Notify (^^^IGPU.DD1F, 0x86)
                             }
                             Else
                             {
@@ -3787,7 +3787,7 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
                         {
                             If (LOr (LEqual (SGST, 0x04), LEqual (SGST, Zero)))
                             {
-                                Notify (^^^GFX0.DD1F, 0x87)
+                                Notify (^^^IGPU.DD1F, 0x87)
                             }
                             Else
                             {
@@ -3974,7 +3974,7 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
 
                     Method (HKDS, 0, NotSerialized)
                     {
-                        ^^^GFX0.GHDS (Zero)
+                        ^^^IGPU.GHDS (Zero)
                     }
 
                     Method (BRXP, 0, NotSerialized)
@@ -3983,7 +3983,7 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
                         {
                             Multiply (DerefOf (Index (PNLT, BLVL)), 0x64, Local1)
                             Divide (Local1, 0x0100, , Local2)
-                            ^^^GFX0.AINT (One, Local2)
+                            ^^^IGPU.AINT (One, Local2)
                         }
                         Else
                         {
@@ -6798,18 +6798,18 @@ Store (Zero, P80D)
         {
             If (And (ICNF, 0x10))
             {
-                If (And (\_SB.PCI0.GFX0.TCHE, 0x0100))
+                If (And (\_SB.PCI0.IGPU.TCHE, 0x0100))
                 {
                     If (LEqual (\_SB.IAOE.ITMR, One))
                     {
                         If (LAnd (And (\_SB.IAOE.IBT1, One), LOr (And (\_SB.IAOE.WKRS, 0x02), And (
                             \_SB.IAOE.WKRS, 0x10))))
                         {
-                            Store (Or (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFC), One), \_SB.PCI0.GFX0.STAT)
+                            Store (Or (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFC), One), \_SB.PCI0.IGPU.STAT)
                         }
                         Else
                         {
-                            Store (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFC), \_SB.PCI0.GFX0.STAT)
+                            Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFC), \_SB.PCI0.IGPU.STAT)
                         }
                     }
                     Else
@@ -6819,11 +6819,11 @@ Store (Zero, P80D)
                             If (LAnd (And (\_SB.PCI0.LPCB.EC0.ECRD (RefOf (\_SB.PCI0.LPCB.EC0.IBT1)), One), LOr (And (\_SB.IAOE.WKRS, 0x02
                                 ), And (\_SB.IAOE.WKRS, 0x10))))
                             {
-                                Store (Or (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFC), One), \_SB.PCI0.GFX0.STAT)
+                                Store (Or (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFC), One), \_SB.PCI0.IGPU.STAT)
                             }
                             Else
                             {
-                                Store (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFC), \_SB.PCI0.GFX0.STAT)
+                                Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFC), \_SB.PCI0.IGPU.STAT)
                             }
                         }
                     }
@@ -6887,12 +6887,12 @@ Store (Zero, P80D)
 
             If (And (GBSX, 0x40))
             {
-                \_SB.PCI0.GFX0.IUEH (0x06)
+                \_SB.PCI0.IGPU.IUEH (0x06)
             }
 
             If (And (GBSX, 0x80))
             {
-                \_SB.PCI0.GFX0.IUEH (0x07)
+                \_SB.PCI0.IGPU.IUEH (0x07)
             }
 
             If (LAnd (DTSE, LGreater (TCNT, One)))
@@ -7594,7 +7594,7 @@ Store (Zero, P80D)
                 0x02, 
                 Package (0x01)
                 {
-                    "\\_SB.PCI0.GFX0"
+                    "\\_SB.PCI0.IGPU"
                 }, 
 
                 Package (0x01)
@@ -7606,7 +7606,7 @@ Store (Zero, P80D)
             {
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     Ones
                 }, 
 
@@ -7716,7 +7716,7 @@ Store (Zero, P80D)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     One, 
                     Package (0x02)
                     {
@@ -8131,7 +8131,7 @@ Store (Zero, P80D)
                                         One, 
                                         Package (0x01)
                                         {
-                                            "\\_SB.PCI0.GFX0"
+                                            "\\_SB.PCI0.IGPU"
                                         }
                                     })
                                 }
@@ -8861,9 +8861,9 @@ Store (Zero, P80D)
 
         Method (_L66, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            If (LAnd (\_SB.PCI0.GFX0.GSSE, LNot (GSMI)))
+            If (LAnd (\_SB.PCI0.IGPU.GSSE, LNot (GSMI)))
             {
-                \_SB.PCI0.GFX0.GSCI ()
+                \_SB.PCI0.IGPU.GSCI ()
             }
         }
 
@@ -14726,17 +14726,17 @@ Store (Zero, P80D)
             Store (^LPCB.EC0.BCL7, Index (PNLT, 0x07))
             Store (^LPCB.EC0.BCL8, Index (PNLT, 0x08))
             Store (^LPCB.EC0.BCL9, Index (PNLT, 0x09))
-            Store (Or (^LPCB.EC0.BCL0, 0x8A00), ^GFX0.BLM0)
-            Store (Or (^LPCB.EC0.BCL1, 0x9400), ^GFX0.BLM1)
-            Store (Or (^LPCB.EC0.BCL2, 0x9E00), ^GFX0.BLM2)
-            Store (Or (^LPCB.EC0.BCL3, 0xA800), ^GFX0.BLM3)
-            Store (Or (^LPCB.EC0.BCL4, 0xB200), ^GFX0.BLM4)
-            Store (Or (^LPCB.EC0.BCL5, 0xBC00), ^GFX0.BLM5)
-            Store (Or (^LPCB.EC0.BCL6, 0xC600), ^GFX0.BLM6)
-            Store (Or (^LPCB.EC0.BCL7, 0xD000), ^GFX0.BLM7)
-            Store (Or (^LPCB.EC0.BCL8, 0xDA00), ^GFX0.BLM8)
-            Store (Or (^LPCB.EC0.BCL9, 0xE400), ^GFX0.BLM9)
-            Store (Zero, ^GFX0.BLMX)
+            Store (Or (^LPCB.EC0.BCL0, 0x8A00), ^IGPU.BLM0)
+            Store (Or (^LPCB.EC0.BCL1, 0x9400), ^IGPU.BLM1)
+            Store (Or (^LPCB.EC0.BCL2, 0x9E00), ^IGPU.BLM2)
+            Store (Or (^LPCB.EC0.BCL3, 0xA800), ^IGPU.BLM3)
+            Store (Or (^LPCB.EC0.BCL4, 0xB200), ^IGPU.BLM4)
+            Store (Or (^LPCB.EC0.BCL5, 0xBC00), ^IGPU.BLM5)
+            Store (Or (^LPCB.EC0.BCL6, 0xC600), ^IGPU.BLM6)
+            Store (Or (^LPCB.EC0.BCL7, 0xD000), ^IGPU.BLM7)
+            Store (Or (^LPCB.EC0.BCL8, 0xDA00), ^IGPU.BLM8)
+            Store (Or (^LPCB.EC0.BCL9, 0xE400), ^IGPU.BLM9)
+            Store (Zero, ^IGPU.BLMX)
         }
     }
 

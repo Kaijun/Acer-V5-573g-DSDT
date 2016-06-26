@@ -27,7 +27,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
      */
     External (_GPE.MMTB, MethodObj)    // 0 Arguments
     External (_GPE.VHOV, MethodObj)    // 3 Arguments
-    External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.DD02._BCM, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // 2 Arguments
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
@@ -36,11 +36,11 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
     External (MDBG, MethodObj)    // 1 Arguments
 
     External (_SB_.IFFS.FFSS, UnknownObj)
-    External (_SB_.PCI0.GFX0.ASLC, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.ASLE, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.PARD, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.STAT, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.TCHE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.ASLC, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.ASLE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.PARD, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.STAT, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.TCHE, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC0_.AWT0, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC0_.AWT1, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC0_.AWT2, FieldUnitObj)
@@ -142,18 +142,18 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                     }
                 }
 
-                If (And (\_SB.PCI0.GFX0.TCHE, 0x0100))
+                If (And (\_SB.PCI0.IGPU.TCHE, 0x0100))
                 {
                     If (LEqual (ITMR, One))
                     {
                         If (LAnd (LAnd (And (IBT1, One), And (\_SB.IAOE.WKRS, 0x02)), LNot (
                             And (Arg0, One))))
                         {
-                            If (LNot (\_SB.PCI0.GFX0.PARD ()))
+                            If (LNot (\_SB.PCI0.IGPU.PARD ()))
                             {
-                                Store (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFC), \_SB.PCI0.GFX0.STAT)
-                                Store (Or (\_SB.PCI0.GFX0.ASLC, 0x0100), \_SB.PCI0.GFX0.ASLC)
-                                Store (One, \_SB.PCI0.GFX0.ASLE)
+                                Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFC), \_SB.PCI0.IGPU.STAT)
+                                Store (Or (\_SB.PCI0.IGPU.ASLC, 0x0100), \_SB.PCI0.IGPU.ASLC)
+                                Store (One, \_SB.PCI0.IGPU.ASLE)
                             }
                         }
                     }
@@ -164,11 +164,11 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                             If (LAnd (LAnd (And (\_SB.PCI0.LPCB.EC0.IBT1, One), And (\_SB.IAOE.WKRS, 0x02)), LNot (
                                 And (Arg0, One))))
                             {
-                                If (LNot (\_SB.PCI0.GFX0.PARD ()))
+                                If (LNot (\_SB.PCI0.IGPU.PARD ()))
                                 {
-                                    Store (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFC), \_SB.PCI0.GFX0.STAT)
-                                    Store (Or (\_SB.PCI0.GFX0.ASLC, 0x0100), \_SB.PCI0.GFX0.ASLC)
-                                    Store (One, \_SB.PCI0.GFX0.ASLE)
+                                    Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFC), \_SB.PCI0.IGPU.STAT)
+                                    Store (Or (\_SB.PCI0.IGPU.ASLC, 0x0100), \_SB.PCI0.IGPU.ASLC)
+                                    Store (One, \_SB.PCI0.IGPU.ASLE)
                                 }
                             }
                         }

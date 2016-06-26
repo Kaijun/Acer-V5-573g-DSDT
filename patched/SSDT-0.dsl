@@ -27,7 +27,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
      */
     External (_GPE.MMTB, MethodObj)    // 0 Arguments
     External (_GPE.VHOV, MethodObj)    // 3 Arguments
-    External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.DD02._BCM, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // 2 Arguments
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // 2 Arguments
@@ -47,42 +47,42 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
     External (_PR_.CPU7, ProcessorObj)
     External (_SB_.OSCO, IntObj)
     External (_SB_.PCI0, DeviceObj)
-    External (_SB_.PCI0.GFX0, DeviceObj)
-    External (_SB_.PCI0.GFX0.CADL, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL2, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL3, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL4, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL5, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL6, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL7, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CAL8, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPDL, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL2, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL3, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL4, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL5, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL6, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL7, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CPL8, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.DD01._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD01._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD02._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD02._BCL, IntObj)
-    External (_SB_.PCI0.GFX0.DD02._BQC, IntObj)
-    External (_SB_.PCI0.GFX0.DD02._DCS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD02._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD03._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD03._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD04._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD04._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD05._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD05._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD06._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD06._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD07._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD07._DGS, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD08._ADR, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.DD08._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU, DeviceObj)
+    External (_SB_.PCI0.IGPU.CADL, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL2, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL3, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL4, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL5, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL6, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL7, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CAL8, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPDL, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL2, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL3, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL4, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL5, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL6, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL7, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CPL8, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.DD01._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD01._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD02._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD02._BCL, IntObj)
+    External (_SB_.PCI0.IGPU.DD02._BQC, IntObj)
+    External (_SB_.PCI0.IGPU.DD02._DCS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD02._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD03._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD03._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD04._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD04._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD05._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD05._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD06._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD06._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD07._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD07._DGS, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD08._ADR, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.DD08._DGS, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.LPCB.EC0_.CTMP, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC0_.GPSW, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC0_.SCTB, MethodObj)    // 0 Arguments
@@ -213,7 +213,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                         CreateField (Arg2, 0xE0, 0x20, XRG0)
                         If (LNotEqual (Arg1, 0x10))
                         {
-                            Return (\_SB.PCI0.GFX0.XDSM (MUID, REVI, SFNC, XRG0))
+                            Return (\_SB.PCI0.IGPU.XDSM (MUID, REVI, SFNC, XRG0))
                         }
                     }
                 }
@@ -224,7 +224,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                         CreateDWordField (Arg2, 0x08, XRG1)
                         If (LEqual (Arg1, 0x10))
                         {
-                            Return (\_SB.PCI0.GFX0.MXMX (XRG1))
+                            Return (\_SB.PCI0.IGPU.MXMX (XRG1))
                         }
                         Else
                         {
@@ -238,7 +238,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                             CreateDWordField (Arg2, 0x08, XRG2)
                             If (LEqual (Arg1, 0x10))
                             {
-                                Return (\_SB.PCI0.GFX0.MXDS (XRG2))
+                                Return (\_SB.PCI0.IGPU.MXDS (XRG2))
                             }
                             Else
                             {
@@ -459,7 +459,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD01._ADR ())
+                Return (\_SB.PCI0.IGPU.DD01._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -468,7 +468,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD01._DGS ())
+                Return (\_SB.PCI0.IGPU.DD01._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -480,17 +480,17 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD02._ADR ())
+                Return (\_SB.PCI0.IGPU.DD02._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
             {
-                Return (\_SB.PCI0.GFX0.DD02._DCS ())
+                Return (\_SB.PCI0.IGPU.DD02._DCS ())
             }
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD02._DGS ())
+                Return (\_SB.PCI0.IGPU.DD02._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -499,17 +499,17 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_BCL, 0, NotSerialized)  // _BCL: Brightness Control Levels
             {
-                Return (\_SB.PCI0.GFX0.DD02._BCL)
+                Return (\_SB.PCI0.IGPU.DD02._BCL)
             }
 
             Method (_BQC, 0, NotSerialized)  // _BQC: Brightness Query Current
             {
-                Return (\_SB.PCI0.GFX0.DD02._BQC)
+                Return (\_SB.PCI0.IGPU.DD02._BQC)
             }
 
             Method (_BCM, 1, NotSerialized)  // _BCM: Brightness Control Method
             {
-                Return (\_SB.PCI0.GFX0.DD02._BCM (Arg0))
+                Return (\_SB.PCI0.IGPU.DD02._BCM (Arg0))
             }
         }
 
@@ -517,7 +517,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD03._ADR ())
+                Return (\_SB.PCI0.IGPU.DD03._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -526,7 +526,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD03._DGS ())
+                Return (\_SB.PCI0.IGPU.DD03._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -538,7 +538,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD04._ADR ())
+                Return (\_SB.PCI0.IGPU.DD04._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -547,7 +547,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD04._DGS ())
+                Return (\_SB.PCI0.IGPU.DD04._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -559,7 +559,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD05._ADR ())
+                Return (\_SB.PCI0.IGPU.DD05._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -568,7 +568,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD05._DGS ())
+                Return (\_SB.PCI0.IGPU.DD05._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -580,7 +580,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD06._ADR ())
+                Return (\_SB.PCI0.IGPU.DD06._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -589,7 +589,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD06._DGS ())
+                Return (\_SB.PCI0.IGPU.DD06._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -601,7 +601,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD07._ADR ())
+                Return (\_SB.PCI0.IGPU.DD07._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -610,7 +610,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD07._DGS ())
+                Return (\_SB.PCI0.IGPU.DD07._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -622,7 +622,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         {
             Method (_ADR, 0, Serialized)  // _ADR: Address
             {
-                Return (\_SB.PCI0.GFX0.DD08._ADR ())
+                Return (\_SB.PCI0.IGPU.DD08._ADR ())
             }
 
             Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
@@ -631,7 +631,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
 
             Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
             {
-                Return (\_SB.PCI0.GFX0.DD08._DGS ())
+                Return (\_SB.PCI0.IGPU.DD08._DGS ())
             }
 
             Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -689,7 +689,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         }
     }
 
-    Scope (\_SB.PCI0.GFX0)
+    Scope (\_SB.PCI0.IGPU)
     {
         Method (MXMX, 1, Serialized)
         {
@@ -1032,240 +1032,240 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
         Name (MSTE, Zero)
         Method (VSTS, 0, NotSerialized)
         {
-            If (LNotEqual (\_SB.PCI0.GFX0.CPDL, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CPDL, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CPDL, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CPDL, And (DID1, 0xFFFF)))
                 {
                     Or (GATD, 0x02, GATD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CPDL, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CPDL, And (DID2, 0xFFFF)))
                     {
                         Or (GATD, One, GATD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CPL2, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CPL2, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CPL2, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CPL2, And (DID1, 0xFFFF)))
                 {
                     Or (GATD, 0x02, GATD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CPL2, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CPL2, And (DID2, 0xFFFF)))
                     {
                         Or (GATD, One, GATD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CPL3, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CPL3, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CPL3, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CPL3, And (DID1, 0xFFFF)))
                 {
                     Or (GATD, 0x02, GATD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CPL3, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CPL3, And (DID2, 0xFFFF)))
                     {
                         Or (GATD, One, GATD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CPL4, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CPL4, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CPL4, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CPL4, And (DID1, 0xFFFF)))
                 {
                     Or (GATD, 0x02, GATD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CPL4, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CPL4, And (DID2, 0xFFFF)))
                     {
                         Or (GATD, One, GATD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CPL5, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CPL5, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CPL5, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CPL5, And (DID1, 0xFFFF)))
                 {
                     Or (GATD, 0x02, GATD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CPL5, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CPL5, And (DID2, 0xFFFF)))
                     {
                         Or (GATD, One, GATD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CPL6, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CPL6, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CPL6, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CPL6, And (DID1, 0xFFFF)))
                 {
                     Or (GATD, 0x02, GATD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CPL6, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CPL6, And (DID2, 0xFFFF)))
                     {
                         Or (GATD, One, GATD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CPL7, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CPL7, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CPL7, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CPL7, And (DID1, 0xFFFF)))
                 {
                     Or (GATD, 0x02, GATD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CPL7, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CPL7, And (DID2, 0xFFFF)))
                     {
                         Or (GATD, One, GATD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CPL8, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CPL8, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CPL8, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CPL8, And (DID1, 0xFFFF)))
                 {
                     Or (GATD, 0x02, GATD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CPL8, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CPL8, And (DID2, 0xFFFF)))
                     {
                         Or (GATD, One, GATD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CADL, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CADL, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CADL, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CADL, And (DID1, 0xFFFF)))
                 {
                     Or (GACD, 0x02, GACD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CADL, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CADL, And (DID2, 0xFFFF)))
                     {
                         Or (GACD, One, GACD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CAL2, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CAL2, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CAL2, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CAL2, And (DID1, 0xFFFF)))
                 {
                     Or (GACD, 0x02, GACD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CAL2, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CAL2, And (DID2, 0xFFFF)))
                     {
                         Or (GACD, One, GACD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CAL3, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CAL3, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CAL3, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CAL3, And (DID1, 0xFFFF)))
                 {
                     Or (GACD, 0x02, GACD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CAL3, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CAL3, And (DID2, 0xFFFF)))
                     {
                         Or (GACD, One, GACD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CAL4, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CAL4, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CAL4, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CAL4, And (DID1, 0xFFFF)))
                 {
                     Or (GACD, 0x02, GACD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CAL4, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CAL4, And (DID2, 0xFFFF)))
                     {
                         Or (GACD, One, GACD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CAL5, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CAL5, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CAL5, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CAL5, And (DID1, 0xFFFF)))
                 {
                     Or (GACD, 0x02, GACD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CAL5, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CAL5, And (DID2, 0xFFFF)))
                     {
                         Or (GACD, One, GACD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CAL6, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CAL6, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CAL6, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CAL6, And (DID1, 0xFFFF)))
                 {
                     Or (GACD, 0x02, GACD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CAL6, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CAL6, And (DID2, 0xFFFF)))
                     {
                         Or (GACD, One, GACD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CAL7, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CAL7, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CAL7, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CAL7, And (DID1, 0xFFFF)))
                 {
                     Or (GACD, 0x02, GACD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CAL7, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CAL7, And (DID2, 0xFFFF)))
                     {
                         Or (GACD, One, GACD)
                     }
                 }
             }
 
-            If (LNotEqual (\_SB.PCI0.GFX0.CAL8, Zero))
+            If (LNotEqual (\_SB.PCI0.IGPU.CAL8, Zero))
             {
-                If (LEqual (\_SB.PCI0.GFX0.CAL8, And (DID1, 0xFFFF)))
+                If (LEqual (\_SB.PCI0.IGPU.CAL8, And (DID1, 0xFFFF)))
                 {
                     Or (GACD, 0x02, GACD)
                 }
                 Else
                 {
-                    If (LEqual (\_SB.PCI0.GFX0.CAL8, And (DID2, 0xFFFF)))
+                    If (LEqual (\_SB.PCI0.IGPU.CAL8, And (DID2, 0xFFFF)))
                     {
                         Or (GACD, One, GACD)
                     }

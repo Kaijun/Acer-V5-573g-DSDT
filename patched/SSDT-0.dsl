@@ -213,7 +213,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                         CreateField (Arg2, 0xE0, 0x20, XRG0)
                         If (LNotEqual (Arg1, 0x10))
                         {
-                            Return (\_SB.PCI0.GFX0._DSM (MUID, REVI, SFNC, XRG0))
+                            Return (\_SB.PCI0.GFX0.XDSM (MUID, REVI, SFNC, XRG0))
                         }
                     }
                 }
@@ -768,7 +768,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
             Ones, 
             0x2C
         })
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
             Store (And (Arg2, 0xFF), Local0)
             If (LEqual (Arg0, ToUUID ("a486d8f8-0bda-471b-a72b-6042a6b5bee0")))
@@ -1831,7 +1831,7 @@ DefinitionBlock ("acpi_ssdt0.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
             Return (Zero)
         }
 
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("a3132d01-8cda-49ba-a52e-bc9d46df6b81")))

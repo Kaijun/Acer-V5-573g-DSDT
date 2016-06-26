@@ -28,11 +28,23 @@
   ```
   
   **Notice**! My tutorial is based on the structure of mine! Please notice your filenames and fit to your own related DSDT/SSDTs! 
-2.  Download [MaciASL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads) and start editing clean dsl files. Add [Laptop-DSDT-Patch](https://github.com/RehabMan/Laptop-DSDT-Patch) repo into MaciASL. If you are doing all things correctly, you will get few errors to be fixed in DSDT.dsl (i only got 4 errors).
+2.  Download [MaciASL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads) and start editing clean dsl files. Add [Laptop-DSDT-Patch](https://github.com/RehabMan/Laptop-DSDT-Patch) repo into MaciASL. 
 
-3. Now we are using `./iasl51 -da -dl -fe refs.txt *.aml` command with help of `refs.txt` ([Referenced Topic](http://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/)). So there should be no errors in your DSDT/SSDTs. If you are interested in how to fix errors manually, please checkout the `deprecated` branch.
+3. Error Fix: Now we are using `./iasl51 -da -dl -fe refs.txt *.aml` command with help of `refs.txt` ([Referenced Topic](http://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/)). So there should be **No Errors** in your DSDT/SSDTs. If you are interested in how to fix errors manually, please checkout the `deprecated` branch.
 
-4. Disable Nvdia:
+4. At the very beginning, we patch Common Fixes: ([Referenced Topic](http://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/))
+  - Apply `Remove _DSM methods` patch to **all DSDT/SSDTs**!
+  - Apply following patched to **DSDT**
+  	* Fix _WAK Arg0 v2
+  	* HPET Fix
+  	* SMBUS Fix
+  	* IRQ Fix
+  	* RTC Fix
+  	* OS Check Fix (Windows 8)
+  	* Fix Mutex with non-zero SyncLevel
+  	* Add IMEI
+
+5. Disable Nvdia:
   - At the top of DSDT, add
   ```
   External (_SB_.PCI0.RP05.PEGP._OFF, MethodObj) // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
@@ -43,18 +55,25 @@
   - Add `\_SB.PCI0.RP05.PEGP._OFF()` at the end of `_WAK` method, but before `Return` statement
   - Add `\_SB.PCI0.RP05.PEGP._OFF()` at the end of `SB.PCI0._INI` method
 
-5. Graphic Fix:
-  - SSDT-0 (Nvidia Graphic fix):
-    * Apply Patch to prevent nvidia graphic card overwriting the internal one:
-    ```
-    into scope label \_SB.PCI0.GFX0 remove_entry;
-    into device label WMI1 remove_entry;
-    ```
-    * Apply Patch `Rename GFX0 to IGPU` -> `Remove _DSM Method`
+6. Graphic Fix:
+  - DSDT: Apply Patch `Rename GFX0 to IGPU`
+  - SSDT-0 (Nvidia Graphic fix): Apply Patch `Rename GFX0 to IGPU`
   - SSDT-1: Apply Patch `Rename GFX0 to IGPU`
-  - SSDT-2(Internal Graphic): Apply Patch `Haswell HD4400` -> `Rename GFX0 to IGPU` -> `Brightness fix Haswell`
+  - SSDT-2(Internal Graphic): Apply Patch `Rename GFX0 to IGPU` -> `Haswell HD4400` -> `Brightness fix Haswell`
 
-6. Shutdown Fix in `DSDT`:
+  
+7. USB Fix in `DSDT` for **El Capitan**: 
+  - Apply Patch `7-Series/8-Series USB`  
+  - Apply Patch `USB3 _PRW 0x6D`: Check the description in patch if you're interested. It will fix almost all the USB related stuffs.
+  - As Rehabman mentioned, rename EHC* and XHC are not the long term solution. So a patch in Clover 45484331 -> 45483031 is then the tempory solution. It works only with two Kexts provided by Rehabman: `FakePCIID_XHCIMux.kext` + `USBInjectAll.kext`
+
+  
+8. Audio Fix
+  - Apply Patch `Audio Layout 03`,  works together with AppleHDA/DummyHDA with 03 Layout.
+  - Apply Patch `HEPT Fix`, `IRQ Fix`
+
+
+9. Shutdown Fix in `DSDT`:
   - Before `_PTS` method, add
   ```
   OperationRegion (PMRS, SystemIO, 0x1830, One)
@@ -76,17 +95,8 @@
       
   }
   ```
-  
-7. USB Fix in `DSDT` for **El Capitan**: 
-  - Apply Patch `USB3 _PRW 0x6D`: Check the description in patch if you're interested. It will fix almost all the USB related stuffs.
-  - As Rehabman mentioned, rename EHC* and XHC are not the long term solution. So a patch in Clover 45484331 -> 45483031 is then the tempory solution. It works only with two Kexts provided by Rehabman: `FakePCIID_XHCIMux.kext` + `USBInjectAll.kext`
 
-  
-8. Audio Fix
-  - Apply Patch `Audio Layout 03`,  works together with AppleHDA/DummyHDA with 03 Layout.
-  - Apply Patch `HEPT Fix`, `IRQ Fix`
-
-9. Brightness Keys (*** Only for Synaptics with VoodooPS2 ***) [(Tutorial)](http://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/)
+10. Brightness Keys (*** Only for Synaptics with VoodooPS2 ***) [(Tutorial)](http://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/)
   - Seems that Keys can't be captured under El Capitain? **Don't** Apply the Patch below! ~~Apply patch below: (Notice: _Q8E and _Q8F are what i captured with ACPIDebug.kext, i don't know if yours is same as mine)~~
   ```
   # Make EC-based brightness up/down work with RehabMan VoodooPS2 ACPI keyboard mechanism
@@ -101,7 +111,7 @@
       Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)\n
   end;
   ```
-10. Wait for your contribution!
+11. Wait for your contribution!
 
 
 ###SSDT Generation

@@ -3103,8 +3103,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         }
                     }
 
-                    Mutex (MUT1, 0x00)
-                    Mutex (MUT0, 0x00)
+                    Mutex(MUT1, 0)
+                    Mutex(MUT0, 0)
                     Method (APOL, 1, NotSerialized)
                     {
                         Store (Arg0, DBPL)
@@ -3713,7 +3713,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     }
 
                     Name (CPUF, Zero)
-                    Mutex (PPCF, 0x00)
+                    Mutex(PPCF, 0)
                     Method (_Q83, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Notify (\_TZ.TZ01, 0x80)
@@ -3985,7 +3985,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         }
                     }
 
-                    Mutex (CTBM, 0x00)
+                    Mutex(CTBM, 0)
                     Method (SCTB, 0, NotSerialized)
                     {
                         Acquire (CTBM, 0xFFFF)
@@ -4057,54 +4057,22 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 {
                     Name (_HID, EisaId ("PNP0103"))  // _HID: Hardware ID
                     Name (_UID, Zero)  // _UID: Unique ID
-                    Name (BUF0, ResourceTemplate ()
-                    {
+                    Name (BUF0, ResourceTemplate()
+{
+    IRQNoFlags() { 0, 8, 11, 15 }
+
                         Memory32Fixed (ReadWrite,
                             0xFED00000,         // Address Base
                             0x00000400,         // Address Length
                             _Y0F)
                     })
-                    Method (_STA, 0, NotSerialized)  // _STA: Status
+
+                    
+
+                    
+                    Name (_STA, 0x0F)
+                    Method (_CRS, 0, NotSerialized)
                     {
-                        If (LGreaterEqual (OSYS, 0x07D1))
-                        {
-                            If (HPAE)
-                            {
-                                Return (0x0F)
-                            }
-                        }
-                        Else
-                        {
-                            If (HPAE)
-                            {
-                                Return (0x0B)
-                            }
-                        }
-
-                        Return (Zero)
-                    }
-
-                    Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
-                    {
-                        If (HPAE)
-                        {
-                            CreateDWordField (BUF0, \_SB.PCI0.LPCB.HPET._Y0F._BAS, HPT0)  // _BAS: Base Address
-                            If (LEqual (HPAS, One))
-                            {
-                                Store (0xFED01000, HPT0)
-                            }
-
-                            If (LEqual (HPAS, 0x02))
-                            {
-                                Store (0xFED02000, HPT0)
-                            }
-
-                            If (LEqual (HPAS, 0x03))
-                            {
-                                Store (0xFED03000, HPT0)
-                            }
-                        }
-
                         Return (BUF0)
                     }
                 }
@@ -4216,8 +4184,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                             0x01,               // Alignment
                             0x02,               // Length
                             )
-                        IRQNoFlags ()
-                            {2}
+                        
                     })
                 }
 
@@ -4361,10 +4328,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                             0x0070,             // Range Minimum
                             0x0070,             // Range Maximum
                             0x01,               // Alignment
-                            0x08,               // Length
+                            0x02,               // Length
                             )
-                        IRQNoFlags ()
-                            {8}
+                        
                     })
                 }
 
@@ -4385,8 +4351,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                             0x10,               // Alignment
                             0x04,               // Length
                             )
-                        IRQNoFlags ()
-                            {0}
+                        
                     })
                 }
 
@@ -6594,13 +6559,17 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     Return (FEBC)
                 }
             }
+            Device (IMEI)
+            {
+                Name (_ADR, 0x00160000)
+            }
         }
     }
 
     Name (ECUP, One)
-    Mutex (MUTX, 0x00)
-    Mutex (OSUM, 0x00)
-    Mutex (WFDM, 0x00)
+    Mutex(MUTX, 0)
+    Mutex(OSUM, 0)
+    Mutex(WFDM, 0)
     OperationRegion (PRT0, SystemIO, 0x80, 0x04)
     Field (PRT0, DWordAcc, Lock, Preserve)
     {
@@ -6778,7 +6747,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
     Method (_WAK, 1, Serialized)  // _WAK: Wake
     {
-        Store (Zero, P80D)
+        If (LOr(LLess(Arg0,1),LGreater(Arg0,5))) { Store(3,Arg0) }
+Store (Zero, P80D)
         If (\_SB.PCI0.LPCB.EC0.LIDT)
         {
             Store (Zero, GO55)
@@ -7440,7 +7410,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     Store (0x07D9, OSYS)
                 }
 
-                If (_OSI ("Windows 2012"))
+                If(LOr(_OSI("Darwin"),_OSI("Windows 2012")))
                 {
                     Store (0x07DC, OSYS)
                 }
@@ -8117,7 +8087,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Return (Zero)
             }
 
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, ToUUID ("b8febfe0-baf8-454b-aecd-49fb91137b21")))
@@ -8339,7 +8309,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             Name (_HID, "INT3420")  // _HID: Hardware ID
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                If (_OSI ("Windows 2012"))
+                If(LOr(_OSI("Darwin"),_OSI("Windows 2012")))
                 {
                     If (LEqual (BID, BW2C))
                     {
@@ -10951,7 +10921,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Zero
             })
             Name (OPTS, Zero)
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -11257,7 +11227,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Zero
             })
             Name (OPTS, Zero)
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -11563,7 +11533,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Zero
             })
             Name (OPTS, Zero)
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -11869,7 +11839,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Zero
             })
             Name (OPTS, Zero)
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -12163,7 +12133,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Zero
             })
             Name (OPTS, Zero)
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -12469,7 +12439,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Zero
             })
             Name (OPTS, Zero)
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -12787,7 +12757,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Zero
             })
             Name (OPTS, Zero)
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -13093,7 +13063,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Zero
             })
             Name (OPTS, Zero)
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -13813,6 +13783,21 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             {
                 Or (HCON, 0x02, HCON)
                 Or (HSTS, 0xFF, HSTS)
+            }
+            Device (BUS0)
+            {
+                Name (_CID, "smbus")
+                Name (_ADR, Zero)
+                Device (DVL0)
+                {
+                    Name (_ADR, 0x57)
+                    Name (_CID, "diagsvault")
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                        Return (Package() { "address", 0x57 })
+                    }
+                }
             }
         }
     }

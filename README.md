@@ -92,16 +92,16 @@
   end;
   ```
 
-10. Brightness Keys (*** Only for Synaptics with VoodooPS2 ***) [(Tutorial)](http://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/)
-  - Seems that Keys can't be captured under El Capitain? **Don't** Apply the Patch below! ~~Apply patch below: (Notice: _Q8E and _Q8F are what i captured with ACPIDebug.kext, i don't know if yours is same as mine)~~
+10. Brightness Keys ( ***Only for Synaptics with VoodooPS2*** ): I don't know if your keys' codes are same as mine, You may need to follow the tutorial and find out yours! [(Tutorial)](http://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/)
+  - Apply patch below: (Notice: _Q8E and _Q8F are what i captured with ACPIDebug.kext)
   ```
   # Make EC-based brightness up/down work with RehabMan VoodooPS2 ACPI keyboard mechanism
-  into method label _Q8E replace_content
+  into method label _Q8F replace_content
   begin
   // Brightness Down\n
       Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)\n
   end;
-  into method label _Q8F replace_content
+  into method label _Q8E replace_content
   begin
   // Brightness Up\n
       Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)\n

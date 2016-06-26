@@ -3745,60 +3745,22 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
 
                     Method (_Q8E, 0, NotSerialized)  // _Qxx: EC Query
                     {
-                        If (LOr (LLess (OSYS, 0x07D6), LEqual (LINX, One)))
-                        {
-                            If (LLess (BLVL, 0x09))
-                            {
-                                Increment (BLVL)
-                            }
+                        
+                        
+                        // Brightness Up
+                        Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
 
-                            BRXP ()
-                        }
-                        Else
-                        {
-                            If (LOr (LEqual (SGST, 0x04), LEqual (SGST, Zero)))
-                            {
-                                Notify (^^^IGPU.DD1F, 0x86)
-                            }
-                            Else
-                            {
-                                Notify (^^^RP05.PEGP.DD01, 0x86)
-                            }
-                        }
 
-                        Store (0x04, Index (^^^WMID.FEBC, Zero))
-                        Store (BLVL, Index (^^^WMID.FEBC, One))
-                        Store (BLVL, Index (^^^WMID.FEBC, 0x02))
-                        Notify (WMID, 0xBC)
                     }
 
                     Method (_Q8F, 0, NotSerialized)  // _Qxx: EC Query
                     {
-                        If (LOr (LLess (OSYS, 0x07D6), LEqual (LINX, One)))
-                        {
-                            If (LGreater (BLVL, Zero))
-                            {
-                                Decrement (BLVL)
-                            }
+                        
+                        
+                        // Brightness Down
+                        Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)
 
-                            BRXP ()
-                        }
-                        Else
-                        {
-                            If (LOr (LEqual (SGST, 0x04), LEqual (SGST, Zero)))
-                            {
-                                Notify (^^^IGPU.DD1F, 0x87)
-                            }
-                            Else
-                            {
-                                Notify (^^^RP05.PEGP.DD01, 0x87)
-                            }
-                        }
 
-                        Store (0x04, Index (^^^WMID.FEBC, Zero))
-                        Store (BLVL, Index (^^^WMID.FEBC, One))
-                        Store (BLVL, Index (^^^WMID.FEBC, 0x02))
-                        Notify (WMID, 0xBC)
                     }
 
                     Method (_Q90, 0, NotSerialized)  // _Qxx: EC Query

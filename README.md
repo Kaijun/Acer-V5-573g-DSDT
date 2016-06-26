@@ -3,7 +3,7 @@
 
 1.  Download [iasl51](https://bitbucket.org/RehabMan/acpica/downloads) use iasl to extract clean DSDT/SSDTs from raw DSDT/SSDTs
   ```
-  ./iasl51 -da *.aml
+  ./iasl51 -da -dl -fe refs.txt *.aml
   // move clean dsl files to clean/ , you can also do it manually!
   mkdir clean && mv raw/*.dsl clean/
   ```
@@ -30,25 +30,7 @@
   **Notice**! My tutorial is based on the structure of mine! Please notice your filenames and fit to your own related DSDT/SSDTs! 
 2.  Download [MaciASL](https://bitbucket.org/RehabMan/os-x-maciasl-patchmatic/downloads) and start editing clean dsl files. Add [Laptop-DSDT-Patch](https://github.com/RehabMan/Laptop-DSDT-Patch) repo into MaciASL. If you are doing all things correctly, you will get few errors to be fixed in DSDT.dsl (i only got 4 errors).
 
-3. Fix errors (My own errors, I don't know How yours look like): 
-  - DSDT: method local variable is not initialized: [Solution Ref #268](http://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/page-27#post-1036066)
-  ```
-  //original with error
-  REG6 = Local1 = \_GPE.MMTB (Local2, \_GPE.OSUP (Local2))
-  //means
-  Local2 = \_GPE.MMTB ()
-  \_GPE.OSUP(Local2)
-  REG6 = Local1
-  //optimization! We use this!!!
-  \_GPE.OSUP (\_GPE.MMTB())
-  Local1 = REG6
-  ```
-  - SSDT-0: [Solution Ref #213](http://www.insanelymac.com/forum/topic/290687-wip-hp-envy-17t-j000-quad-haswell-1085109x1010x1011x/?p=1975006) Apply Patch:
-  ```
-  into method label _BCM parent_label DD02 code_regex Return\s\((.*)\)\n\s+(.*) replace_matched begin Return(%1(%2)) end;
-  into definitionblock code_regex External\s\((.*\._BCM),\s+IntObj\) replace_matched begin External(%1,MethodObj) end;
-  ```
-  - SSDT-3/4: Remove Them! We will generate an SSDT for our own CPU SpeedStepping later.
+3. Now we are using `./iasl51 -da -dl -fe refs.txt *.aml` command with help of `refs.txt` ([Referenced Topic](http://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/)). So there should be no errors in your DSDT/SSDTs. If you are interested in how to fix errors manually, please checkout the `deprecated` branch.
 
 4. Disable Nvdia:
   - At the top of DSDT, add

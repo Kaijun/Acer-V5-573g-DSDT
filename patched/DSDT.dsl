@@ -9457,9 +9457,22 @@ Store (Zero, P80D)
                 }
             }
 
-            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+            
+            
+            Name(_PRW, Package() { 0x6D, 0 })
+            Method (_DSM, 4, NotSerialized)
             {
-                Return (GPRW (0x6D, 0x03))
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
+                {
+                    "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },
+                    "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
+                    "AAPL,current-available", 2100,
+                    "AAPL,current-extra", 2200,
+                    "AAPL,current-extra-in-sleep", 1600,
+                    "AAPL,device-internal", 0x02,
+                    "AAPL,max-port-current-in-sleep", 2100,
+                })
             }
         }
 
@@ -10822,9 +10835,22 @@ Store (Zero, P80D)
                 }
             }
 
-            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+            
+            
+            Name(_PRW, Package() { 0x6D, 0 })
+            Method (_DSM, 4, NotSerialized)
             {
-                Return (GPRW (0x6D, 0x03))
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
+                {
+                    "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },
+                    "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
+                    "AAPL,current-available", 2100,
+                    "AAPL,current-extra", 2200,
+                    "AAPL,current-extra-in-sleep", 1600,
+                    "AAPL,device-internal", 0x02,
+                    "AAPL,max-port-current-in-sleep", 2100,
+                })
             }
         }
 
@@ -10845,11 +10871,9 @@ Store (Zero, P80D)
                     ,   6, 
                 PMES,   1
             }
+            Name(_PRW, Package() { 0x6D, 0 })
 
-            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
-            {
-                Return (GPRW (0x6D, 0x04))
-            }
+            
         }
 
         Device (RP01)

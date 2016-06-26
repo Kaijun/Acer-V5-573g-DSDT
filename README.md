@@ -33,7 +33,7 @@
 3. Error Fix: Now we are using `./iasl51 -da -dl -fe refs.txt *.aml` command with help of `refs.txt` ([Referenced Topic](http://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/)). So there should be **No Errors** in your DSDT/SSDTs. If you are interested in how to fix errors manually, please checkout the `deprecated` branch.
 
 4. At the very beginning, we patch Common Fixes: ([Referenced Topic](http://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/))
-  - Apply `Remove _DSM methods` patch to **all DSDT/SSDTs**!
+  - Apply `Rename _DSM methods to XDSM` patch to **all DSDT/SSDTs**!
   - Apply following patched to **DSDT**
   	* Fix _WAK Arg0 v2
   	* HPET Fix

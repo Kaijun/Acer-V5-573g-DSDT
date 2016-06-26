@@ -6722,8 +6722,8 @@ External (_SB_.PCI0.RP05.PEGP._ON, MethodObj) // Warning: Unresolved Method, gue
         Store (\_SB.PCI0.LPCB.EC0.ED3G, \_SB.RD3G)
         If (LEqual (Arg0, 0x05))
         {
-            P8XH (0x04, 0x55, Zero)
-            P8XH (0x04, 0x55, One)
+            Store (Zero, SLPE)
+            Sleep (0x10)
         }
 
         If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))
@@ -14851,6 +14851,12 @@ Store (Zero, P80D)
 
     Method (WAK, 1, NotSerialized)
     {
+    }
+    OperationRegion (PMRS, SystemIO, 0x1830, One)
+    Field (PMRS, ByteAcc, NoLock, Preserve)
+    {
+        ,   4,
+        SLPE,   1
     }
 }
 

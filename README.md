@@ -69,30 +69,27 @@
 
   
 8. Audio Fix
-  - Apply Patch `Audio Layout 03`,  works together with AppleHDA/DummyHDA with 03 Layout.
+  - Apply Patch `Audio Layout 03` in `DSDT`,  works together with AppleHDA/DummyHDA with 03 Layout.
 
 
 9. Shutdown Fix in `DSDT`:
-  - Before `_PTS` method, add
+  - Apply the Patch in DSDT: 
   ```
-  OperationRegion (PMRS, SystemIO, 0x1830, One)
-  Field (PMRS, ByteAcc, NoLock, Preserve)
-  {
-    , 4,
-    SLPE, 1
+  #Shutdown Fix
+  into method label _PTS code_regex (If\s*\(LEqual\s*\(Arg0,\s*0x05\)\)\s*\n\s*\{\s*\n)(?:[^\n\}]+\n)+(\s*\}) replace_matched begin
+  %1
+              Store (Zero, SLPE)\n
+              Sleep (0x10)\n
+  %2
+  end;
+  into definitionblock code_regex . code_regex_not OperationRegion\s*\(PMRS insert begin
+  OperationRegion (PMRS, SystemIO, 0x1830, One)\n
+  Field (PMRS, ByteAcc, NoLock, Preserve)\n
+  {\n
+          ,   4, \n
+      SLPE,   1\n
   }
-  ```
-  - In `_PTS` method, in `If (LEqual (Arg0, 0x05))` method add:
-  ```
-  If (LEqual (Arg0, 0x05))
-  {
-      P8XH (0x04, 0x55, Zero)
-      P8XH (0x04, 0x55, One)
-      //added to fix shutdown
-      Store (Zero, SLPE)
-      Sleep (0x10)
-      
-  }
+  end;
   ```
 
 10. Brightness Keys (*** Only for Synaptics with VoodooPS2 ***) [(Tutorial)](http://www.tonymacx86.com/threads/guide-patching-dsdt-ssdt-for-laptop-backlight-control.152659/)

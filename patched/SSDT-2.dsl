@@ -2852,7 +2852,7 @@ DefinitionBlock ("acpi_ssdt2.aml", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
                 If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
                 Return (Package()
                 {
-                    "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x0a },
+                    "AAPL,ig-platform-id", Buffer() { 0x0C, 0x00, 0x16, 0x0A },
                     "hda-gfx", Buffer() { "onboard-1" },
                 })
             }

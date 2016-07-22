@@ -59,7 +59,7 @@
   - DSDT: Apply Patch `Rename GFX0 to IGPU`
   - SSDT-0 (Nvidia Graphic fix): Apply Patch `Rename GFX0 to IGPU`
   - SSDT-1: Apply Patch `Rename GFX0 to IGPU`
-  - SSDT-2(Internal Graphic): Apply Patch `Rename GFX0 to IGPU` -> `Haswell HD4400` -> `Brightness fix Haswell`
+  - SSDT-2(Internal Graphic): Apply Patch `Rename GFX0 to IGPU` -> `Haswell HD4400` (However replace ***0x06, 0x00, 0x26, 0x0a*** to ***0x0C, 0x00, 0x16, 0x0A*** in the patch, which more compatible with HD4400 ) -> `Brightness fix Haswell`
 
   
 7. USB Fix in `DSDT` for **El Capitan**: 
